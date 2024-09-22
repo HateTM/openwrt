@@ -283,6 +283,12 @@
         };
     };
 
+    &pcie0 {
+        pinctrl-names = "default";
+        pinctrl-0 = <&pcie0_pins>;
+        status = "okay";
+    };
+
     &pio {
         wifi_led_pins: wifi_led-pins-1-2 {
             mux {
@@ -522,12 +528,6 @@
         };
     };
 };
-
-&pcie0 {
-        pinctrl-names = "default";
-        pinctrl-0 = <&pcie0_pins>;
-        status = "okay";
-    };
 
 &wbsys {
     mediatek,mtd-eeprom = <&factory 0x0000>;
