@@ -1204,13 +1204,21 @@ TARGET_DEVICES += tplink_tl-xtr8488
 
 define Device/tplink_ax-80v1
   DEVICE_VENDOR := TP-Link
-  DEVICE_MODEL := AX 80 V1
-  DEVICE_DTS := mt7986a-tplink-ax-80v1
+  DEVICE_MODEL := AX80
+  DEVICE_TITLE := TP-Link AX80
+  DEVICE_DTS := mt7986a-tplink-ax80v1
+  DEVICE_PACKAGES += kmod-usb3 kmod-mt7915e kmod-mt7986-firmware mt7986-wo-firmware
+  DEVICE_RAM := 512
+  DEVICE_FLASH := 128
+
+  # Настройки UBI
   UBINIZE_OPTS := -E 5
-  BLOCKSIZE := 128k
+  BLOCKSIZE := 128KiB
   PAGESIZE := 2048
   KERNEL_IN_UBI := 1
-  UBOOTENV_IN_UBI := 0
+  UBOOTENV_IN_UBI := 1
+  
+  # Настройки изображений
   IMAGES := sysupgrade.itb
   KERNEL_INITRAMFS_SUFFIX := -recovery.itb
   KERNEL := kernel-bin | gzip
@@ -1218,10 +1226,28 @@ define Device/tplink_ax-80v1
         fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 64k
   IMAGE/sysupgrade.itb := append-kernel | \
         fit gzip $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb external-with-rootfs | append-metadata
-  DEVICE_PACKAGES := fitblk kmod-usb3 kmod-mt7915e kmod-mt7986-firmware mt7986-wo-firmware
+  
+  # Дополнительные пакеты
+  DEVICE_PACKAGES += fitblk kmod-usb3 kmod-mt7915e kmod-mt7986-firmware mt7986-wo-firmware
+  
+  # Артефакты
   ARTIFACTS := preloader.bin bl31-uboot.fip
   ARTIFACT/preloader.bin := mt7986-bl2 spim-nand-ddr3
+  ARTIFACT/bl31-uboot.fip := mt7986-bl31-uboot tplink_ax80
+  
+  # Конфигурация U-Boot
+  CONFIG_SYS_LOAD_ADDR = 0x46000000
+  CONFIG_ENV_SIZE = 0x20000
+  CONFIG_ENV_OFFSET = 0x0
+  CONFIG_ENV_MTD_NAME = "u-boot-env"
+  CONFIG_BOOTARGS = "ubi.mtd=ubi0 console=ttyS0,115200n1 loglevel=8 earlycon=uart8250,mmio32,0x11002000 init=/etc/preinit"
+
+  # Структура разделов
+  CONFIG_MTDIDS_DEFAULT = "spi-nand0=spi-nand0"
+  CONFIG_MTDPARTS_DEFAULT = "spi-nand0:2M(boot),1M(u-boot-env),50M(ubi0),50M(ubi1),8M(userconfig),4M(tp_data),8M(mali_data)"
 endef
+
+# Добавление устройства в список целевых устройств
 TARGET_DEVICES += tplink_ax-80v1
 
 define Device/ubnt_unifi-6-plus
