@@ -4,7 +4,7 @@
 #include "mt7986a.dtsi"
 / {
 	model = "MediaTek MT7986a RFB";
-	compatible = "mediatek,mt7986a-snand-rfb";
+	compatible = "tplink,archer-ax80","mediatek,mt7986a-snand-rfb";
 	chosen {
 		//bootargs = "console=ttyS0,115200n1 loglevel=8  \
 		//		earlycon=uart8250,mmio32,0x11002000 \
