@@ -90,12 +90,6 @@
         status = "okay";
     };
 
-    &pcie0 { // Убедитесь, что pcie0 определен в других местах файла
-        pinctrl-names = "default";
-        pinctrl-0 = <&pcie0_pins>;
-        status = "okay";
-    };
-
     &pwm {
         pinctrl-names = "default";
         pinctrl-0 = <&pwm0_pin &pwm1_pin_g1>;
