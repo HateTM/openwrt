@@ -90,6 +90,12 @@
         status = "okay";
     };
 
+    &pcie0 { // Убедитесь, что pcie0 определен в других местах файла
+        pinctrl-names = "default";
+        pinctrl-0 = <&pcie0_pins>;
+        status = "okay";
+    };
+
     &pwm {
         pinctrl-names = "default";
         pinctrl-0 = <&pwm0_pin &pwm1_pin_g1>;
@@ -527,7 +533,7 @@
             };
         };
     };
-
+};
 
 &wbsys {
     mediatek,mtd-eeprom = <&factory 0x0000>;
@@ -596,5 +602,4 @@
             max-cur = /bits/ 8 <0x20>;
         };
     };
-  };
 };
