@@ -328,32 +328,30 @@
             };
         };
     };
-};
 
-
-    &pwm {
+&pwm {
         pinctrl-names = "default";
         pinctrl-0 = <&pwm0_pin &pwm1_pin_g1>;
         status = "okay";
     };
 
-    &uart0 {
+&uart0 {
         status = "okay";
     };
 
-    &uart1 {
+&uart1 {
         pinctrl-names = "default";
         pinctrl-0 = <&uart1_pins>;
         status = "okay";
     };
 
-    &uart2 {
+&uart2 {
         pinctrl-names = "default";
         pinctrl-0 = <&uart2_pins>;
         status = "okay";
     };
 
-    &i2c0 {
+&i2c0 {
         pinctrl-names = "default";
         pinctrl-0 = <&i2c_pins>;
         status = "okay";
@@ -364,15 +362,15 @@
         };
     };
 
-    &auxadc {
+&auxadc {
         status = "okay";
     };
 
-    &watchdog {
+&watchdog {
         status = "okay";
     };
 
-    &eth {
+&eth {
         status = "okay";
 
         gmac0: mac@0 {
@@ -465,14 +463,14 @@
         };
     };
 
-    &hnat {
+&hnat {
         mtketh-wan = "eth1";
         mtketh-lan = "lan";
         mtketh-max-gmac = <2>;
         status = "okay";
     };
 
-    &spi0 {
+&spi0 {
         pinctrl-names = "default";
         pinctrl-0 = <&spi_flash_pins>;
         cs-gpios = <0>, <0>;		
@@ -524,7 +522,7 @@
         };
     };
 
-    &pcie0 {
+&pcie0 {
         pinctrl-names = "default";
         pinctrl-0 = <&pcie0_pins>;
         status = "okay";
@@ -595,6 +593,7 @@
             chan-name = "d9";
             led-cur = /bits/ 8 <0x14>;
             max-cur = /bits/ 8 <0x20>;
-        };
-    };
+              };
+       };
+     };
 };
