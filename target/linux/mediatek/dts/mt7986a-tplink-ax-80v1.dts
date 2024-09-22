@@ -6,6 +6,11 @@
 / {
     model = "TP-Link AX80 V1";
     compatible = "mediatek,mt7986a-snand-rfb";
+    
+    aliases {
+		serial0 = &uart0;
+		label-mac-device = &gmac0;
+   };
 
     chosen {
         //bootargs = "console=ttyS0,115200n1 loglevel=8  \
