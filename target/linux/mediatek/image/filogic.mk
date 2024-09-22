@@ -1206,6 +1206,7 @@ define Device/tplink_ax-80v1
   DEVICE_VENDOR := TP-Link
   DEVICE_MODEL := AX80
   DEVICE_TITLE := TP-Link AX80
+  DEVICE_DTS_DIR := ../dts
   DEVICE_DTS := mt7986a-tplink-ax80v1
   DEVICE_PACKAGES += kmod-usb3 kmod-mt7915e kmod-mt7986-firmware mt7986-wo-firmware
   DEVICE_RAM := 512
