@@ -74,6 +74,11 @@
         status = "okay";
     };
 };
+&pcie0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pcie0_pins>;
+	status = "okay";
+};
 
 // UART устройства
 &uart0 {
@@ -220,11 +225,4 @@
             reg = <0x6700000 0x800000>;
         };
     };
-};
-
-// PCIe устройство
-&pcie0 {
-    pinctrl-names = "default";
-    pinctrl-0 = <&pcie0_pins>;
-    status = "okay";
 };
