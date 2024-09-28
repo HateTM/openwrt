@@ -519,12 +519,12 @@
 	};
 };
 
-wbsys {
+&wbsys {
 	mediatek,mtd-eeprom = <&factory 0x0000>;
 	status = "okay";
 };
 
-i2c0 {
+&i2c0 {
 	status = "okay";
 
 	lp55231@0x32 {
