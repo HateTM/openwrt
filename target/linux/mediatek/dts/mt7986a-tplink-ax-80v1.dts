@@ -5,7 +5,12 @@
 / {
 	model = "MediaTek MT7986a RFB";
 	compatible = "tplink,archer-ax80","mediatek,mt7986a-snand-rfb";
-	chosen {
+	
+        aliases {
+		serial0 = &uart0;
+	};
+
+        chosen {
 		//bootargs = "console=ttyS0,115200n1 loglevel=8  \
 		//		earlycon=uart8250,mmio32,0x11002000 \
 		//		init=/etc/preinit";
@@ -89,17 +94,17 @@
 	};
 };
 
-uart0 {
+&uart0 {
 	status = "okay";
 };
 
-uart1 {
+&uart1 {
         pinctrl-names = "default";
         pinctrl-0 = <&uart1_pins>;
 	status = "okay";
 };
 
-uart2 {
+&uart2 {
         pinctrl-names = "default";
         pinctrl-0 = <&uart2_pins>;
 	status = "okay";
