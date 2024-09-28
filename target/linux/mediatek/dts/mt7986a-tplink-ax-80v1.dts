@@ -129,7 +129,7 @@
 	status = "okay";
 };
 
-eth {
+&eth {
         status = "okay";
 
         gmac0: mac@0 {
@@ -229,7 +229,7 @@ hnat {
 	status = "okay";
 };
 
-spi0 {
+&spi0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&spi_flash_pins>;
 	cs-gpios = <0>, <0>;		
@@ -287,7 +287,7 @@ pcie0 {
 	status = "okay";
 };
 
-pio {
+&pio {
 	wifi_led_pins: wifi_led-pins-1-2 {
 		mux {
 			function = "led";
