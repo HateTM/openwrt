@@ -1227,16 +1227,8 @@ define Device/tplink_ax-80v1
   KERNEL = kernel-bin | lzma | \
 	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
   KERNEL_INITRAMFS = kernel-bin | lzma | \
-	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd
-     
-  CONFIG_BOOTARGS = "ubi.mtd=ubi0 console=ttyS0,115200n1 loglevel=8 earlycon=uart8250,mmio32,0x11002000 init=/etc/preinit"
-
-  # Структура разделов
-  CONFIG_MTDIDS_DEFAULT = "spi-nand0=spi-nand0"
-  CONFIG_MTDPARTS_DEFAULT = "spi-nand0:2M(boot),1M(u-boot-env),50M(ubi0),50M(ubi1),8M(userconfig),4M(tp_data),8M(mali_data)"
+        fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd
 endef
-
-# Добавление устройства в список целевых устройств
 TARGET_DEVICES += tplink_ax-80v1
 
 define Device/ubnt_unifi-6-plus
