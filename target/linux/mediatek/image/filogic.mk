@@ -1219,7 +1219,6 @@ define Device/tplink_ax-80v1
   BLOCKSIZE := 128KiB
   PAGESIZE := 2048
   KERNEL_IN_UBI := 1
-  UBOOTENV_IN_UBI := 1
   IMAGE_SIZE := 51200k
   IMAGES += factory.bin
   IMAGE/factory.bin := append-ubi | check-size $$$$(IMAGE_SIZE)
