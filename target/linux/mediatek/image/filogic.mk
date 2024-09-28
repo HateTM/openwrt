@@ -1224,8 +1224,14 @@ define Device/tplink_ax-80v1
   PAGESIZE := 2048
   KERNEL_IN_UBI := 1
   UBOOTENV_IN_UBI := 1
-  IMAGE_SIZE := 51200k
+  IMAGE_SIZE := 65536k
+  IMAGES += factory.bin
+  IMAGE/factory.bin := append-ubi | check-size $$$$(IMAGE_SIZE)
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  KERNEL = kernel-bin | lzma | \
+	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
+  KERNEL_INITRAMFS = kernel-bin | lzma | \
+	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd
      
   # Конфигурация U-Boot
   CONFIG_SYS_LOAD_ADDR = 0x46000000
