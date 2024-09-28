@@ -12,7 +12,7 @@
 	};
 
 	memory {
-		reg = <0 0x40000000 0 0x10000000>;
+		reg = <0 0x40000000 0 0x20000000>;
 	};
 
 	reserved-memory {
@@ -89,29 +89,29 @@
 	};
 };
 
-&pwm {
+pwm {
         pinctrl-names = "default";
         pinctrl-0 = <&pwm0_pin &pwm1_pin_g1>;
 	status = "okay";
 };
 
-&uart0 {
+uart0 {
 	status = "okay";
 };
 
-&uart1 {
+uart1 {
         pinctrl-names = "default";
         pinctrl-0 = <&uart1_pins>;
 	status = "okay";
 };
 
-&uart2 {
+uart2 {
         pinctrl-names = "default";
         pinctrl-0 = <&uart2_pins>;
 	status = "okay";
 };
 
-&i2c0 {
+i2c0 {
         pinctrl-names = "default";
         pinctrl-0 = <&i2c_pins>;
         status = "okay";
@@ -122,15 +122,15 @@
 	};
 };
 
-&auxadc {
+auxadc {
         status = "okay";
 };
 
-&watchdog {
+watchdog {
 	status = "okay";
 };
 
-&eth {
+eth {
         status = "okay";
 
         gmac0: mac@0 {
@@ -223,14 +223,14 @@
         };
 };
 
-&hnat {
+hnat {
 	mtketh-wan = "eth1";
 	mtketh-lan = "lan";
 	mtketh-max-gmac = <2>;
 	status = "okay";
 };
 
-&spi0 {
+spi0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&spi_flash_pins>;
 	cs-gpios = <0>, <0>;		
@@ -247,7 +247,7 @@
 		partition@0 {
 			label = "boot";
 			reg = <0x00000 0x0200000>;
-			read-only;
+			
 		};
 
 		partition@200000 {
@@ -282,13 +282,13 @@
 	};
 };
 
-&pcie0 {
+pcie0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pcie0_pins>;
 	status = "okay";
 };
 
-&pio {
+pio {
 	wifi_led_pins: wifi_led-pins-1-2 {
 		mux {
 			function = "led";
@@ -527,12 +527,12 @@
 	};
 };
 
-&wbsys {
+wbsys {
 	mediatek,mtd-eeprom = <&factory 0x0000>;
 	status = "okay";
 };
 
-&i2c0 {
+i2c0 {
 	status = "okay";
 
 	lp55231@0x32 {
