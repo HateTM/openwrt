@@ -222,7 +222,7 @@
         };
 };
 
-hnat {
+&hnat {
 	mtketh-wan = "eth1";
 	mtketh-lan = "lan";
 	mtketh-max-gmac = <2>;
