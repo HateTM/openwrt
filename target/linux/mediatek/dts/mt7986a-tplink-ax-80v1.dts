@@ -434,7 +434,7 @@
 		};
 		conf-pd {
 			pins = "SPI2_CLK", "SPI2_MOSI", "SPI2_MISO";
-			drive-strength = <8;
+			drive-strength = <8>;
 			mediatek,pull-up-down = <0>;
 		};
 	};
