@@ -121,11 +121,11 @@
 	};
 };
 
-auxadc {
+&auxadc {
         status = "okay";
 };
 
-watchdog {
+&watchdog {
 	status = "okay";
 };
 
