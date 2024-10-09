@@ -13,7 +13,9 @@
 	#size-cells = <0x02>;
 	interrupt-parent = <0x01>;
 
-        };
+       aliases {
+		serial0 = &uart0;
+		};
 
 	chosen {
 		bootargs = "console=ttyS0,115200n1 loglevel=8 earlycon=uart8250,mmio32,0x11002000 init=/etc/preinit";
