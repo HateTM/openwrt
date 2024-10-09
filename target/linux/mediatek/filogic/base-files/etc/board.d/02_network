@@ -75,6 +75,9 @@ mediatek_setup_interfaces()
 	tplink,tl-xtr8488)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4 lan5" eth1
 		;;
+        tplink,archer-ax80)
+                ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan0" eth1
+		;;
 	mediatek,mt7986a-rfb)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4 lan6" "eth1 wan"
 		;;
@@ -144,7 +147,7 @@ mediatek_setup_macs()
 		label_mac=$wan_mac
 		;;
 	mercusys,mr90x-v1|\
-	tplink,re6000xd)
+        tplink,re6000xd)
 		label_mac=$(get_mac_binary "/tmp/tp_data/default-mac" 0)
 		lan_mac=$label_mac
 		;;
