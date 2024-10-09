@@ -5,10 +5,10 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/leds/common.h>
 
-#include "mt7986a-rfb.dtsi"
+#include "mt7986a.dtsi"
 / {
 	model = "TP-Link Archer AX80 v1";
-	compatible = "tplink,archer-ax80", "mediatek,mt7986a-rfb";
+	compatible = "tplink,archer-ax80", "mediatek,mt7986a";
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
 	interrupt-parent = <0x01>;
