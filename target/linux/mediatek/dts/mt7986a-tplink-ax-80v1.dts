@@ -160,35 +160,10 @@
 		ranges;
 		status = "okay";
 
-		usb-phy {
-			clock-names = "ref";
-			clocks = <0x1c>;
-			#phy-cells = <0x01>;
-			status = "okay";
-			reg = <0x00 0x11e10700 0x00 0x900>;
-			phandle = <0x1a>;
-		};
-
-		usb-phy {
-			clock-names = "ref";
-			clocks = <0x1c>;
-			#phy-cells = <0x01>;
-			status = "okay";
-			reg = <0x00 0x11e10000 0x00 0x700>;
-			phandle = <0x19>;
-		};
-
-		usb-phy {
-			clock-names = "ref";
-			clocks = <0x1c>;
-			#phy-cells = <0x01>;
-			status = "okay";
-			reg = <0x00 0x11e11000 0x00 0x700>;
-			phandle = <0x1b>;
-		};
+		
 	};
 
-	topckgen@1001B000 {
+	topckgen {
 		#clock-cells = <0x01>;
 		compatible = "mediatek,mt7986-topckgen\0syscon";
 		reg = <0x00 0x1001b000 0x00 0x1000>;
