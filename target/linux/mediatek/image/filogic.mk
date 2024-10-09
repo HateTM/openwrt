@@ -1213,6 +1213,7 @@ define Device/tplink_ax-80v1
   DEVICE_MODEL := AX80
   DEVICE_DTS_DIR := ../dts
   DEVICE_DTS := mt7986a-tplink-ax-80v1
+  SUPPORTED_DEVICES := mediatek,mt7986a-rfb-snand
   DEVICE_PACKAGES += kmod-mt7915e kmod-mt7986-firmware mt7986-wo-firmware
   UBINIZE_OPTS := -E 5
   BLOCKSIZE := 128KiB
