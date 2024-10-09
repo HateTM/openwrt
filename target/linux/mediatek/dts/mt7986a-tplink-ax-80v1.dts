@@ -9,16 +9,15 @@
 / {
 	model = "TP-Link Archer AX80 v1";
 	compatible = "tplink,archer-ax80","mediatek,mt7986a";
-	
-       /dts-v1/;
-
-/ {
 	#address-cells = <0x02>;
-	model = "MediaTek MT7986a RFB";
 	#size-cells = <0x02>;
 	interrupt-parent = <0x01>;
-	compatible = "mediatek,mt7986a-snand-rfb";
 
+        memory {
+		device_type = "memory";
+		reg = <0x00 0x40000000 0x00 0x20000000>;
+	};
+	
 	syscon@10060000 {
 		#clock-cells = <0x01>;
 		compatible = "mediatek,mt7986-sgmiisys\0mediatek,mt7986-sgmiisys_0\0syscon";
@@ -1125,9 +1124,6 @@
 		reg = <0x00 0x10000000 0x00 0x8600000>;
 	};
 
-	memory {
-		device_type = "memory";
-		reg = <0x00 0x40000000 0x00 0x20000000>;
-	};
+	
 };
 
