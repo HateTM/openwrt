@@ -8,7 +8,7 @@
 #include "mt7986a-rfb.dtsi"
 / {
 	model = "TP-Link Archer AX80 v1";
-	compatible = "tplink,archer-ax80","mediatek,mt7986a-rfb";
+	compatible = "tplink,archer-ax80", "mediatek,mt7986a-rfb";
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
 	interrupt-parent = <0x01>;
