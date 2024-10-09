@@ -122,8 +122,7 @@ platform_do_upgrade() {
 		emmc_do_upgrade "$1"
 		;;
 	mercusys,mr90x-v1|\
-        tplink,archer-ax80|\
-	tplink,re6000xd)
+     	tplink,re6000xd)
 		CI_UBIPART="ubi0"
 		nand_do_upgrade "$1"
 		;;
