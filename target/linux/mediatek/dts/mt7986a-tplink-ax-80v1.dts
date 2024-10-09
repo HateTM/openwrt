@@ -1115,8 +1115,8 @@ partition@d00000 {
 		memory-region = <0x18>;
 		compatible = "mediatek,mt7986-consys";
 		reg = <0x00 0x10000000 0x00 0x8600000>;
-	};
+    };
 
-	
+};
 };
 
