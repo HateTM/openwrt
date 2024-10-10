@@ -8,16 +8,12 @@
 #include "mt7986a-rfb.dtsi"
 / {
 	model = "TP-Link Archer AX80 v1";
-	compatible = "mediatek,mt7986a-rfb-snand", "tplink,archer-ax80";
+	compatible = "tplink,archer-ax80", "mediatek,mt7986a-rfb";
 	
 
        aliases {
 		serial0 = &uart0;
 		};
-
-	chosen {
-		bootargs = "console=ttyS0,115200n1 loglevel=8 earlycon=uart8250,mmio32,0x11002000 init=/etc/preinit";
-	};
 
         memory {
 		device_type = "memory";
