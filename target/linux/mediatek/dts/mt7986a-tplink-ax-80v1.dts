@@ -8,7 +8,7 @@
 #include "mt7986a.dtsi"
 / {
 	model = "TP-Link Archer AX80 v1";
-	compatible = "tplink,archer-ax80", "mediatek,mt7986a";
+	compatible = "mediatek,mt7986a", "tplink,archer-ax80";
 	
 
        aliases {
