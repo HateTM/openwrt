@@ -862,7 +862,7 @@ partition@d00000 {
 			phandle = <0x0f>;
 			interrupt-controller;
 		};
-	
+	     };
 
 	serial {
 		pinctrl-names = "default";
@@ -910,6 +910,7 @@ partition@d00000 {
 			phandle = <0x02>;
 		};
 	};
+};
 
 
 
