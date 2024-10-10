@@ -14,6 +14,9 @@
        aliases {
 		serial0 = &uart0;
 		};
+chosen {
+          bootarg = "console=ttyS0,115200n1 loglevel=8 earlycon=uart8250,mmio32,0x11002000 init=/etc/preinit";
+       {
 
         memory {
 		device_type = "memory";
@@ -148,15 +151,8 @@
 		phandle = <0x05>;
 	};
 
-	thermal-zones {
 
-		cpu-thermal {
-			polling-delay = <0x3e8>;
-			polling-delay-passive = <0x3e8>;
-			thermal-sensors = <0x0b 0x00>;
-		};
-	};
-
+	
 	i2c {
 		clock-div = <0x05>;
 		pinctrl-names = "default";
@@ -846,13 +842,7 @@ partition@d00000 {
 		};
 	};
 
-	sound {
-		mediatek,audio-codec = <0x20>;
-		audio-routing = "Headphone\0HP_L\0Headphone\0HP_R\0LINPUT1\0AMIC\0RINPUT1\0AMIC";
-		compatible = "mediatek,mt7986-wm8960-machine";
-		status = "okay";
-		mediatek,platform = <0x1f>;
-	};
+
 
 	pcie {
 		pinctrl-names = "default";
@@ -921,49 +911,9 @@ partition@d00000 {
 		};
 	};
 
-	cpus {
-		
-		cpu@1 {
-			device_type = "cpu";
-			compatible = "arm,cortex-a53";
-			reg = <0x01>;
-			enable-method = "psci";
-		};
 
-		cpu@2 {
-			device_type = "cpu";
-			compatible = "arm,cortex-a53";
-			reg = <0x02>;
-			enable-method = "psci";
-		};
 
-		cpu@0 {
-			device_type = "cpu";
-			compatible = "arm,cortex-a53";
-			reg = <0x00>;
-			enable-method = "psci";
-		};
 
-		cpu@3 {
-			device_type = "cpu";
-			compatible = "arm,cortex-a53";
-			reg = <0x03>;
-			enable-method = "psci";
-		};
-	};
-
-	snfi {
-		
-		clock-names = "pad_clk\0nfi_clk\0nfi_hclk";
-		reg-names = "nfi\0ecc";
-		assigned-clocks = <0x05 0x38 0x05 0x37>;
-		assigned-clock-parents = <0x05 0x04 0x05 0x04>;
-		interrupts = <0x00 0x79 0x04>;
-		clocks = <0x04 0x20 0x04 0x1f 0x04 0x21>;
-		compatible = "mediatek,mt7986-snand";
-		status = "disabled";
-		reg = <0x00 0x11005000 0x00 0x1000 0x00 0x11006000 0x00 0x1000>;
-	};
 
 	hnat {
 		resets = <0x12 0x00>;
@@ -976,62 +926,6 @@ partition@d00000 {
 		mtketh-lan = "lan";
 	};
 
-	reserved-memory {
-		ranges;
-
-		secmon {
-			reg = <0x00 0x43000000 0x00 0x30000>;
-			no-map;
-		};
-
-		wocpu0_emi {
-			compatible = "mediatek,wocpu0_emi";
-			reg = <0x00 0x4fd00000 0x00 0x40000>;
-			no-map;
-			shared = <0x00>;
-		};
-
-		buffer@0 {
-			reg = <0x00 0x40000000 0x00 0x400000>;
-			phandle = <0x1e>;
-			no-map;
-		};
-
-		wmcpu-reserved {
-			compatible = "mediatek,wmcpu-reserved";
-			reg = <0x00 0x4fc00000 0x00 0x100000>;
-			phandle = <0x18>;
-			no-map;
-		};
-
-		wocpu_data {
-			compatible = "mediatek,wocpu_data";
-			reg = <0x00 0x4fd80000 0x00 0x240000>;
-			no-map;
-			shared = <0x01>;
-		};
-
-		wocpu1_emi {
-			compatible = "mediatek,wocpu1_emi";
-			reg = <0x00 0x4fd40000 0x00 0x40000>;
-			no-map;
-			shared = <0x00>;
-		};
-	};
-
-	infracf {
-		
-		compatible = "mediatek,mt7986-infracfg\0syscon";
-		reg = <0x00 0x1000106c 0x00 0x1000>;
-		phandle = <0x03>;
-	};
-
-	consys {
-		memory-region = <0x18>;
-		compatible = "mediatek,mt7986-consys";
-		reg = <0x00 0x10000000 0x00 0x8600000>;
-    };
-
-};
+	
 };
 
