@@ -16,7 +16,7 @@
 		};
 chosen {
           bootarg = "console=ttyS0,115200n1 loglevel=8 earlycon=uart8250,mmio32,0x11002000 init=/etc/preinit";
-       {
+       };
 
         memory {
 		device_type = "memory";
