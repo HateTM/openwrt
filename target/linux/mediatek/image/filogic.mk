@@ -1226,9 +1226,6 @@ define Device/tplink_ax-80v1
 	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
   KERNEL_INITRAMFS = kernel-bin | lzma | \
         fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd
-  ARTIFACTS := preloader.bin bl31-uboot.fip
-  ARTIFACT/preloader.bin := mt7986-bl2 spim-nand-ddr3
-  ARTIFACT/bl31-uboot.fip := mt7986-bl31-uboot tplink_ax-80v1
 endef
 TARGET_DEVICES += tplink_ax-80v1
 
