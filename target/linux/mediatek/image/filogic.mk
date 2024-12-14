@@ -812,7 +812,7 @@ define Device/tplink_ax80-v1
   DEVICE_MODEL := AX80(RU) v1
   DEVICE_DTS := mt7986a-tplink-ax80-v1
   DEVICE_DTS_DIR := ../dts
-  DEVICE_PACKAGES := kmod-mt7986-firmware mt7986-wo-firmware
+  DEVICE_PACKAGES := kmod-mt7986-firmware mt7986-wo-firmware kmod-usb3
   UBINIZE_OPTS := -E 5
   BLOCKSIZE := 128k
   PAGESIZE := 2048
