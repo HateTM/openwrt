@@ -113,13 +113,7 @@
 		compatible = "mediatek,eth-mac";
 		reg = <1>;
 		phy-handle = <&phy6>;
-		
 		phy-mode = "2500base-x";
-		                fixed-link {
-                        speed = <2500>;
-                        full-duplex;
-                        pause;
-                };
 	};
 
         mdio: mdio-bus {
@@ -137,7 +131,6 @@
 		phy6: phy@6 {
 			compatible = "ethernet-phy-id67c9.de0a";
 			reg = <6>;
-			phy-mode = "2500base-x";
 		};
 
                 switch@0 {
@@ -171,7 +164,6 @@
 
                                 port@6 {
                                         reg = <6>;
-                                        label = "cpu";
                                         ethernet = <&gmac0>;
                                         phy-mode = "2500base-x";
 
@@ -186,6 +178,9 @@
         };
 };
 
+&pcie {
+  status = "okay";
+};
 
 &pio {
 	wifi_led_pins: wifi_led-pins-1-2 {
